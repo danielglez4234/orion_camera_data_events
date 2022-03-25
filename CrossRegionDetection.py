@@ -6,5 +6,5 @@ class CrossRegionDetection:
         self.data = info["data"]
 
         datatojson = json.loads(self.data)
-        print(" ------- soy un CrossRegionDetection -----------   ")
+        # print(" ------- soy un CrossRegionDetection -----------   ")
 

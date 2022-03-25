@@ -18,6 +18,7 @@ def event_identifier(info):
 
 
 def get_event_type(event):
+    print(str(event))
     begin = event.find("=")
     end = event.find(";")
     return event[begin+1:end]
@@ -46,13 +47,13 @@ def on_receive(data):
             connected = True
         elif line.startswith("Code=") and "data=" in line:
             event_type = get_event_type(line)
-            print("type --> ", str(event_type))
+            # print("type --> ", str(event_type))
 
             event_action = get_event_action(line)
-            print("action --> ", str(event_action))
+            # print("action --> ", str(event_action))
 
             event_data = get_event_data(line)
-            print("data --> ", str(event_data))
+            # print("data --> ", str(event_data))
 
             info = {
                "type": event_type,

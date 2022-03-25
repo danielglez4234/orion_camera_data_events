@@ -7,5 +7,5 @@ class VideoMotion:
         self.action = info["action"]
 
         datatojson = json.loads(self.data)
-        print(" ------- soy un VideoMotion -----------")
+        # print(" ------- soy un VideoMotion -----------")
 

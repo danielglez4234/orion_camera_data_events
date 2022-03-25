@@ -1,0 +1,508 @@
+Code=VideoMotion;action=Start;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+Code=VideoMotion;action=Stop;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+Code=VideoMotion;action=Start;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+Code=VideoMotion;action=Stop;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+Code=VideoMotion;action=Start;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+Code=VideoMotion;action=Stop;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+Code=VideoMotion;action=Start;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+Code=VideoMotion;action=Stop;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+Code=VideoMotion;action=Start;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+Code=VideoMotion;action=Stop;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+Code=VideoMotion;action=Start;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+Code=VideoMotion;action=Stop;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+Code=VideoMotion;action=Start;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+Code=VideoMotion;action=Stop;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+Code=VideoMotion;action=Start;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+Code=VideoMotion;action=Stop;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+
+
+Code=CrossRegionDetection;action=Stop;index=0;data={
+   "Action" : "Appear",
+   "Class" : "Normal",
+   "CountInGroup" : 1,
+   "DetectRegion" : [
+      [ 50, 50 ],
+      [ 8141, 50 ],
+      [ 8141, 8141 ],
+      [ 50, 8141 ]
+   ],
+   "EventSeq" : 0,
+   "FrameSequence" : 90401,
+   "GroupID" : 0,
+   "IndexInGroup" : 0,
+   "Mark" : 0,
+   "Name" : "IVS-1",
+   "Object" : {
+      "Action" : "Appear",
+      "BoundingBox" : [ 6600, 0, 7864, 3520 ],
+      "Center" : [ 7232, 1760 ],
+      "Confidence" : 0,
+      "FrameSequence" : 0,
+      "LowerBodyColor" : [ 0, 0, 0, 0 ],
+      "MainColor" : [ 0, 0, 0, 0 ],
+      "ObjectID" : 459,
+      "ObjectType" : "Human",
+      "RelativeID" : 0,
+      "Source" : 0.0,
+      "Speed" : 0,
+      "SpeedTypeInternal" : 0
+   },
+   "PTS" : 64451092740.0,
+   "PresetID" : 0,
+   "RuleId" : 1,
+   "Sequence" : 0,
+   "Source" : 0.0,
+   "Track" : null,
+   "UTC" : 1648220571,
+   "UTCMS" : 893
+}
+
+Code=IntelliFrame;action=Pulse;index=0;data={
+   "Action" : "Stop"
+}
+
+Code=VideoMotion;action=Start;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+
+
+Code=VideoMotion;action=Start;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+Code=CrossLineDetection;action=Start;index=0;data={
+   "Class" : "Normal",
+   "CountInGroup" : 1,
+   "DetectLine" : [
+      [ 4196, 0 ],
+      [ 4196, 8191 ]
+   ],
+   "Direction" : "LeftToRight",
+   "EventSeq" : 0,
+   "FrameSequence" : 90616,
+   "GroupID" : 0,
+   "IndexInGroup" : 0,
+   "Mark" : 0,
+   "Name" : "IVS-3",
+   "Object" : {
+      "Action" : "Appear",
+      "BoundingBox" : [ 392, 512, 6872, 8160 ],
+      "Center" : [ 3632, 4336 ],
+      "Confidence" : 0,
+      "FrameSequence" : 0,
+      "LowerBodyColor" : [ 0, 0, 0, 0 ],
+      "MainColor" : [ 0, 0, 0, 0 ],
+      "ObjectID" : 465,
+      "ObjectType" : "Human",
+      "RelativeID" : 0,
+      "Source" : 0.0,
+      "Speed" : 0,
+      "SpeedTypeInternal" : 0
+   },
+   "PTS" : 64451119620.0,
+   "PresetID" : 0,
+   "RuleId" : 3,
+   "Sequence" : 0,
+   "Source" : 0.0,
+   "Track" : null,
+   "UTC" : 1648220598,
+   "UTCMS" : 774
+}
+
+Code=LeFunctionStatusSync;action=Pulse;index=0;data={
+   "Function" : "WightLight",
+   "Status" : true
+}
+
+Code=CrossRegionDetection;action=Start;index=0;data={
+   "Action" : "Appear",
+   "Class" : "Normal",
+   "CountInGroup" : 1,
+   "DetectRegion" : [
+      [ 50, 50 ],
+      [ 8141, 50 ],
+      [ 8141, 8141 ],
+      [ 50, 8141 ]
+   ],
+   "EventSeq" : 1,
+   "FrameSequence" : 90616,
+   "GroupID" : 0,
+   "IndexInGroup" : 0,
+   "Mark" : 0,
+   "Name" : "IVS-1",
+   "Object" : {
+      "Action" : "Appear",
+      "BoundingBox" : [ 392, 512, 6872, 8160 ],
+      "Center" : [ 3632, 4336 ],
+      "Confidence" : 0,
+      "FrameSequence" : 0,
+      "LowerBodyColor" : [ 0, 0, 0, 0 ],
+      "MainColor" : [ 0, 0, 0, 0 ],
+      "ObjectID" : 465,
+      "ObjectType" : "Human",
+      "RelativeID" : 0,
+      "Source" : 0.0,
+      "Speed" : 0,
+      "SpeedTypeInternal" : 0
+   },
+   "PTS" : 64451119620.0,
+   "PresetID" : 0,
+   "RuleId" : 1,
+   "Sequence" : 0,
+   "Source" : 0.0,
+   "Track" : null,
+   "UTC" : 1648220598,
+   "UTCMS" : 774
+}
+
+Code=IntelliFrame;action=Pulse;index=0;data={
+   "Action" : "Start"
+}
+
+Code=NewFile;action=Pulse;index=0;data={
+   "Data" : {
+      "Class" : "Normal",
+      "CountInGroup" : 1,
+      "DetectLine" : [
+         [ 4196, 0 ],
+         [ 4196, 8191 ]
+      ],
+      "Direction" : "LeftToRight",
+      "EventSeq" : 0,
+      "FrameSequence" : 90616,
+      "GroupID" : 0,
+      "IndexInGroup" : 0,
+      "Mark" : 0,
+      "Name" : "IVS-3",
+      "Object" : {
+         "Action" : "Appear",
+         "BoundingBox" : [ 392, 512, 6872, 8160 ],
+         "Center" : [ 3632, 4336 ],
+         "Confidence" : 0,
+         "FrameSequence" : 0,
+         "LowerBodyColor" : [ 0, 0, 0, 0 ],
+         "MainColor" : [ 0, 0, 0, 0 ],
+         "ObjectID" : 465,
+         "ObjectType" : "Human",
+         "RelativeID" : 0,
+         "Source" : 0.0,
+         "Speed" : 0,
+         "SpeedTypeInternal" : 0
+      },
+      "PTS" : 64451119620.0,
+      "PresetID" : 0,
+      "RuleId" : 3,
+      "Sequence" : 0,
+      "Source" : 0.0,
+      "Track" : null,
+      "UTC" : 1648220598,
+      "UTCMS" : 774
+   },
+   "Event" : "CrossLineDetection",
+   "File" : "\/var\/tmp\/jpg\/0\/20220325150318830ch01.jpg",
+   "Index" : 0,
+   "Size" : 304704,
+   "StoragePoint" : "Temporary"
+}
+
+Code=NewFile;action=Pulse;index=0;data={
+   "Data" : {
+      "Action" : "Appear",
+      "Class" : "Normal",
+      "CountInGroup" : 1,
+      "DetectRegion" : [
+         [ 50, 50 ],
+         [ 8141, 50 ],
+         [ 8141, 8141 ],
+         [ 50, 8141 ]
+      ],
+      "EventSeq" : 1,
+      "FrameSequence" : 90616,
+      "GroupID" : 0,
+      "IndexInGroup" : 0,
+      "Mark" : 0,
+      "Name" : "IVS-1",
+      "Object" : {
+         "Action" : "Appear",
+         "BoundingBox" : [ 392, 512, 6872, 8160 ],
+         "Center" : [ 3632, 4336 ],
+         "Confidence" : 0,
+         "FrameSequence" : 0,
+         "LowerBodyColor" : [ 0, 0, 0, 0 ],
+         "MainColor" : [ 0, 0, 0, 0 ],
+         "ObjectID" : 465,
+         "ObjectType" : "Human",
+         "RelativeID" : 0,
+         "Source" : 0.0,
+         "Speed" : 0,
+         "SpeedTypeInternal" : 0
+      },
+      "PTS" : 64451119620.0,
+      "PresetID" : 0,
+      "RuleId" : 1,
+      "Sequence" : 0,
+      "Source" : 0.0,
+      "Track" : null,
+      "UTC" : 1648220598,
+      "UTCMS" : 774
+   },
+   "Event" : "CrossRegionDetection",
+   "File" : "\/var\/tmp\/jpg\/0\/20220325150318830ch01.jpg",
+   "Index" : 0,
+   "Size" : 304704,
+   "StoragePoint" : "Temporary"
+}
+
+Code=VideoMotion;action=Stop;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+Code=CrossLineDetection;action=Stop;index=0;data={
+   "Class" : "Normal",
+   "CountInGroup" : 1,
+   "DetectLine" : [
+      [ 4196, 0 ],
+      [ 4196, 8191 ]
+   ],
+   "Direction" : "LeftToRight",
+   "EventSeq" : 0,
+   "FrameSequence" : 90616,
+   "GroupID" : 0,
+   "IndexInGroup" : 0,
+   "Mark" : 0,
+   "Name" : "IVS-3",
+   "Object" : {
+      "Action" : "Appear",
+      "BoundingBox" : [ 392, 512, 6872, 8160 ],
+      "Center" : [ 3632, 4336 ],
+      "Confidence" : 0,
+      "FrameSequence" : 0,
+      "LowerBodyColor" : [ 0, 0, 0, 0 ],
+      "MainColor" : [ 0, 0, 0, 0 ],
+      "ObjectID" : 465,
+      "ObjectType" : "Human",
+      "RelativeID" : 0,
+      "Source" : 0.0,
+      "Speed" : 0,
+      "SpeedTypeInternal" : 0
+   },
+   "PTS" : 64451119620.0,
+   "PresetID" : 0,
+   "RuleId" : 3,
+   "Sequence" : 0,
+   "Source" : 0.0,
+   "Track" : null,
+   "UTC" : 1648220598,
+   "UTCMS" : 774
+}
+
+Code=IntelliFrame;action=Pulse;index=0;data={
+   "Action" : "Stop"
+}
+
+Code=CrossRegionDetection;action=Stop;index=0;data={
+   "Action" : "Appear",
+   "Class" : "Normal",
+   "CountInGroup" : 1,
+   "DetectRegion" : [
+      [ 50, 50 ],
+      [ 8141, 50 ],
+      [ 8141, 8141 ],
+      [ 50, 8141 ]
+   ],
+   "EventSeq" : 1,
+   "FrameSequence" : 90616,
+   "GroupID" : 0,
+   "IndexInGroup" : 0,
+   "Mark" : 0,
+   "Name" : "IVS-1",
+   "Object" : {
+      "Action" : "Appear",
+      "BoundingBox" : [ 392, 512, 6872, 8160 ],
+      "Center" : [ 3632, 4336 ],
+      "Confidence" : 0,
+      "FrameSequence" : 0,
+      "LowerBodyColor" : [ 0, 0, 0, 0 ],
+      "MainColor" : [ 0, 0, 0, 0 ],
+      "ObjectID" : 465,
+      "ObjectType" : "Human",
+      "RelativeID" : 0,
+      "Source" : 0.0,
+      "Speed" : 0,
+      "SpeedTypeInternal" : 0
+   },
+   "PTS" : 64451119620.0,
+   "PresetID" : 0,
+   "RuleId" : 1,
+   "Sequence" : 0,
+   "Source" : 0.0,
+   "Track" : null,
+   "UTC" : 1648220598,
+   "UTCMS" : 774
+}
+
+Code=IntelliFrame;action=Pulse;index=0;data={
+   "Action" : "Stop"
+}
+
+Code=VideoMotion;action=Start;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+Code=VideoMotion;action=Stop;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+Code=LeFunctionStatusSync;action=Pulse;index=0;data={
+   "Function" : "WightLight",
+   "Status" : false
+}
+
+
+
+Code=IntelliFrame;action=Pulse;index=0;data={
+   "Action" : "Start"
+}
+
+Code=NewFile;action=Pulse;index=0;data={
+   "Data" : {
+      "Class" : "Normal",
+      "CountInGroup" : 1,
+      "DetectRegion" : [
+         [ 500, 500 ],
+         [ 7690, 500 ],
+         [ 7690, 7690 ],
+         [ 500, 7690 ]
+      ],
+      "EventSeq" : 0,
+      "FrameSequence" : 91260,
+      "GroupID" : 0,
+      "IndexInGroup" : 0,
+      "Mark" : 0,
+      "Name" : "IVS-2",
+      "Object" : {
+         "Action" : "Appear",
+         "BoundingBox" : [ 3768, 2952, 4600, 3240 ],
+         "Center" : [ 4184, 3096 ],
+         "Confidence" : 0,
+         "FrameSequence" : 0,
+         "ObjectID" : 10200002,
+         "ObjectType" : "Unknown",
+         "RelativeID" : 0,
+         "Source" : 0.0,
+         "Speed" : 0,
+         "SpeedTypeInternal" : 0
+      },
+      "PTS" : 64451200080.0,
+      "PresetID" : 0,
+      "RuleId" : 2,
+      "Sequence" : 0,
+      "Source" : 0.0,
+      "UTC" : 1648220679,
+      "UTCMS" : 238
+   },
+   "Event" : "TakenAwayDetection",
+   "File" : "\/var\/tmp\/jpg\/0\/20220325150439419ch01.jpg",
+   "Index" : 0,
+   "Size" : 329441,
+   "StoragePoint" : "Temporary"
+}
+
+Code=VideoMotion;action=Stop;index=1;data={
+   "RegionName" : [ "Region1" ]
+}
+
+Code=TakenAwayDetection;action=Stop;index=0;data={
+   "Class" : "Normal",
+   "CountInGroup" : 1,
+   "DetectRegion" : [
+      [ 500, 500 ],
+      [ 7690, 500 ],
+      [ 7690, 7690 ],
+      [ 500, 7690 ]
+   ],
+   "EventSeq" : 0,
+   "FrameSequence" : 91260,
+   "GroupID" : 0,
+   "IndexInGroup" : 0,
+   "Mark" : 0,
+   "Name" : "IVS-2",
+   "Object" : {
+      "Action" : "Appear",
+      "BoundingBox" : [ 3768, 2952, 4600, 3240 ],
+      "Center" : [ 4184, 3096 ],
+      "Confidence" : 0,
+      "FrameSequence" : 0,
+      "ObjectID" : 10200002,
+      "ObjectType" : "Unknown",
+      "RelativeID" : 0,
+      "Source" : 0.0,
+      "Speed" : 0,
+      "SpeedTypeInternal" : 0
+   },
+   "PTS" : 64451200080.0,
+   "PresetID" : 0,
+   "RuleId" : 2,
+   "Sequence" : 0,
+   "Source" : 0.0,
+   "UTC" : 1648220679,
+   "UTCMS" : 238
+}
+
+
+
+
+
+
+
+
+
