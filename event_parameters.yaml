@@ -1,0 +1,5 @@
+camera:
+  url: https://camera.com/
+
+events:
+  type: ["VideoMotion"]

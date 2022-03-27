@@ -1,13 +1,28 @@
 import pycurl
 import argparse
+import yaml
 
+from CrossLineDetection import CrossLineDetection
 from CrossRegionDetection import CrossRegionDetection
+from TakenAwayDetection import TakenAwayDetection
 from VideoMotion import VideoMotion
+
 
 connected = False
 USERNAME = "admin"
 PASSWORD = "1IoTIC21"
-CAMERA_IP = "161.72.123.249"
+
+
+"""yaml declaration"""
+
+def yaml_loader():
+    with open("event_parameters.yaml", 'r') as file_descriptor:
+        data = yaml.load(file_descriptor)
+    return data
+
+yamlparams = yaml_loader()
+
+"""----------"""
 
 
 def event_identifier(info):
@@ -15,7 +30,11 @@ def event_identifier(info):
         VideoMotion(info)
     elif info["type"] == "CrossRegionDetection":
         CrossRegionDetection(info)
-
+    elif info["type"] == "CrossLineDetection":
+        CrossLineDetection(info)
+    elif info["type"] == "TakenAwayDetection":
+        TakenAwayDetection(info)
+    
 
 def get_event_type(event):
     print(str(event))
@@ -38,9 +57,6 @@ def get_event_data(event):
 
 def on_receive(data):
     d = data.decode()
-    event_data = ""
-    event_action = ""
-    event_type = ""
     for line in d.split("\r\n"):
         if "HTTP/1.1 200 OK" == line:
             global connected
@@ -63,9 +79,10 @@ def on_receive(data):
             event_identifier(info)
 
 
-def start():
-    url = "http://%s:%s@161.72.123.249/cgi-bin/eventManager.cgi?action=attach&codes=[All]&heartbeat=5." % (USERNAME, PASSWORD)
-    # url = ""++"" % (USERNAME, PASSWORD)
+def start():  
+    # url = "http://%s:%s@161.72.123.249/cgi-bin/eventManager.cgi?action=attach&codes=[All]&heartbeat=5." % (USERNAME, PASSWORD)
+    url = yamlparams.camera.url
+    
     try:
         c = pycurl.Curl()
         c.setopt(pycurl.URL, url)
@@ -87,10 +104,5 @@ def start():
 if __name__ == '__main__':
     USERNAME = "admin"
     PASSWORD = "1IoTIC21"
-
-    parser = argparse.ArgumentParser(description='Event dispatcher for SGG')
-    parser.add_argument('-t', '--parameters',  help='add params')
-
-    args = vars(parser.parse_args())
 
     start()
