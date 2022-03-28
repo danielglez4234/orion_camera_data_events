@@ -1,5 +1,6 @@
 camera:
-  url: https://camera.com/
+  ip: https://camera.com/
+  user:
+  password: 
 
-events:
-  type: ["VideoMotion"]
+  events: [""]

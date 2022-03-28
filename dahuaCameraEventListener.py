@@ -1,19 +1,15 @@
 import pycurl
-import argparse
 import yaml
 
-from CrossLineDetection import CrossLineDetection
-from CrossRegionDetection import CrossRegionDetection
-from TakenAwayDetection import TakenAwayDetection
-from VideoMotion import VideoMotion
+from EventCode import EventCode
+from orionContextBroker import orionContextBroker
+
 
 
 connected = False
 USERNAME = "admin"
 PASSWORD = "1IoTIC21"
 
-
-"""yaml declaration"""
 
 def yaml_loader():
     with open("event_parameters.yaml", 'r') as file_descriptor:
@@ -22,22 +18,20 @@ def yaml_loader():
 
 yamlparams = yaml_loader()
 
-"""----------"""
 
+def event_identifier(message):
+    try: 
+        eventDecoder = EventCode[message["type"]]
+    except KeyError:
+        print("Exeption: ", str(message["type"]), " is not registered")
+    else: 
+        event = eventDecoder.value.decode(message)
+        orionContextBroker(event.toOrionEntitie("id_camera"))
+        
 
-def event_identifier(info):
-    if info["type"] == "VideoMotion":
-        VideoMotion(info)
-    elif info["type"] == "CrossRegionDetection":
-        CrossRegionDetection(info)
-    elif info["type"] == "CrossLineDetection":
-        CrossLineDetection(info)
-    elif info["type"] == "TakenAwayDetection":
-        TakenAwayDetection(info)
-    
 
 def get_event_type(event):
-    print(str(event))
+    # print(str(event))
     begin = event.find("=")
     end = event.find(";")
     return event[begin+1:end]
@@ -62,27 +56,17 @@ def on_receive(data):
             global connected
             connected = True
         elif line.startswith("Code=") and "data=" in line:
-            event_type = get_event_type(line)
-            # print("type --> ", str(event_type))
-
-            event_action = get_event_action(line)
-            # print("action --> ", str(event_action))
-
-            event_data = get_event_data(line)
-            # print("data --> ", str(event_data))
-
             info = {
-               "type": event_type,
-               "action": event_action,
-               "data": event_data
+               "type": get_event_type(line),
+               "action": get_event_action(line),
+               "data": get_event_data(line)
             }
             event_identifier(info)
 
 
 def start():  
-    # url = "http://%s:%s@161.72.123.249/cgi-bin/eventManager.cgi?action=attach&codes=[All]&heartbeat=5." % (USERNAME, PASSWORD)
-    url = yamlparams.camera.url
-    
+    url = "http://%s:%s@161.72.123.249/cgi-bin/eventManager.cgi?action=attach&codes=[All]&heartbeat=5." % (USERNAME, PASSWORD)
+    # url = yamlparams.camera.url
     try:
         c = pycurl.Curl()
         c.setopt(pycurl.URL, url)
