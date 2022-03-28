@@ -53,29 +53,29 @@ class CrossRegionDetection(Event):
                 "type": "Object",
                 "Action": {
                     "type": "String",
-                    "value": dataJn["Object.Action"]
+                    "value": dataJn["Object"]["Action"]
                 },
                 "ObjectType" :{
                     "type": "String",
-                    "value": dataJn["Object.ObjectType"]
+                    "value": dataJn["Object"]["ObjectType"]
                 },
                 "Speed": {
                     "type": "String",
-                    "value": dataJn["Object.Speed"]
+                    "value": dataJn["Object"]["Speed"]
                 },
                 "SpeedTypeInternal":{
                     "type": "String",
-                    "value": dataJn["Object.SpeedTypeInternal"]
+                    "value": dataJn["Object"]["SpeedTypeInternal"]
                 },
                 "FrameLocation": {
                     "type": "Object",
                     "BoundingBox" : {
                         "type": "ArrayList",
-                        "value": dataJn["Object.BoundingBox"]
+                        "value": dataJn["Object"]["BoundingBox"]
                     },
                     "Center" : {
                         "type": "ArrayList",
-                        "value": dataJn["Object.Center"]
+                        "value": dataJn["Object"]["Center"]
                     }
                 }
             }
@@ -109,29 +109,29 @@ class CrossLineDetection(Event):
                 "type": "Object",
                 "Action": {
                     "type": "String",
-                    "value": dataJn["Object.Action"]
+                    "value": dataJn["Object"]["Action"]
                 },
                 "ObjectType" :{
                     "type": "String",
-                    "value": dataJn["Object.ObjectType"]
+                    "value": dataJn["Object"]["ObjectType"]
                 },
                 "Speed": {
                     "type": "String",
-                    "value": dataJn["Object.Speed"]
+                    "value": dataJn["Object"]["Speed"]
                 },
                 "SpeedTypeInternal":{
                     "type": "String",
-                    "value": dataJn["Object.SpeedTypeInternal"]
+                    "value": dataJn["Object"]["SpeedTypeInternal"]
                 },
                 "FrameLocation": {
                     "type": "Object",
                     "BoundingBox" : {
                         "type": "ArrayList",
-                        "value": dataJn["Object.BoundingBox"]
+                        "value": dataJn["Object"]["BoundingBox"]
                     },
                     "Center" : {
                         "type": "ArrayList",
-                        "value": dataJn["Object.Center"]
+                        "value": dataJn["Object"]["Center"]
                     }
                 }
             }
@@ -156,21 +156,21 @@ class TakenAwayDetection(Event):
                 "type": "Object",
                 "Action": {
                     "type": "String",
-                    "value": dataJn["Object.Action"]
+                    "value": dataJn["Object"]["Action"]
                 },
                 "ObjectType" :{
                     "type": "String",
-                    "value": dataJn["Object.ObjectType"]
+                    "value": dataJn["Object"]["ObjectType"]
                 },
                 "FrameLocation": {
                     "type": "Object",
                     "BoundingBox" : {
                         "type": "ArrayList",
-                        "value": dataJn["Object.BoundingBox"]
+                        "value": dataJn["Object"]["BoundingBox"]
                     },
                     "Center" : {
                         "type": "ArrayList",
-                        "value": dataJn["Object.Center"]
+                        "value": dataJn["Object"]["Center"]
                     }
                 }
             }

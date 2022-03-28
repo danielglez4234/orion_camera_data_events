@@ -67,6 +67,7 @@ def on_receive(data):
 def start():  
     url = "http://%s:%s@161.72.123.249/cgi-bin/eventManager.cgi?action=attach&codes=[All]&heartbeat=5." % (USERNAME, PASSWORD)
     # url = yamlparams.camera.url
+    
     try:
         c = pycurl.Curl()
         c.setopt(pycurl.URL, url)
