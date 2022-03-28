@@ -18,7 +18,7 @@ class VideoMotion(Event):
         dataJn = json.loads(self.data)
         payload = {
             "id": self.id,
-            "Type": "camera_events",
+            "type": "camera_events",
             "Event_name": "VideoMotion",
             "State": {
                 "type": "String",
@@ -39,7 +39,7 @@ class CrossRegionDetection(Event):
         dataJn = json.loads(self.data)
         payload = {
             "id": self.id,
-            "Type": "camera_events",
+            "type": "camera_events",
             "Event_name": "CrossRegionDetection",
             "State": {
                 "type": "String",
@@ -91,7 +91,7 @@ class CrossLineDetection(Event):
         dataJn = json.loads(self.data)
         payload = {
             "id": self.id,
-            "Type": "camera_events",
+            "type": "camera_events",
             "Event_name": "CrossLineDetection",
             "State": {
                 "type": "String",
@@ -146,7 +146,7 @@ class TakenAwayDetection(Event):
         dataJn = json.loads(self.data)
         payload = {
             "id": self.id,
-            "Type": "camera_events",
+            "type": "camera_events",
             "Event_name": "TakenAwayDetection",
             "State": {
                 "type": "String",
