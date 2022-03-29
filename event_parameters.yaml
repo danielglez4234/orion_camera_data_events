@@ -1,6 +1,7 @@
-camera:
+entitie:
+  id: camre21
+  type: camera_event
   ip: https://camera.com/
-  user:
-  password: 
-
+  user: admin
+  password: 12345
   events: [""]

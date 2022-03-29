@@ -13,7 +13,7 @@ PASSWORD = "1IoTIC21"
 
 def yaml_loader():
     with open("event_parameters.yaml", 'r') as file_descriptor:
-        data = yaml.load(file_descriptor)
+        data = yaml.safe_load(file_descriptor)
     return data
 
 yamlparams = yaml_loader()
@@ -26,9 +26,10 @@ def event_identifier(message):
         print("Exeption: ", str(message["type"]), " is not registered")
     else: 
         event = eventDecoder.value.decode(message)
-        orionContextBroker(event.toOrionEntitie("id_camera"))
+        id = yamlparams["entitie"]["id"]
+        type = yamlparams["entitie"]["type"]
+        orionContextBroker(event.toOrionEntitie(id, type))
         
-
 
 def get_event_type(event):
     # print(str(event))

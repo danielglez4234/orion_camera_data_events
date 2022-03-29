@@ -8,17 +8,18 @@ class Event:
         self.data = message["data"]
         self.action = message["action"]
         
-    def toOrionEntitie(self, id):
+    def toOrionEntitie(self, id, type):
         raise NotImplementedError()
     
     
 class VideoMotion(Event): 
-    def toOrionEntitie(self, id): 
+    def toOrionEntitie(self, id, type): 
         self.id = id
+        self.type = type
         dataJn = json.loads(self.data)
         payload = {
-            "id": self.id,
-            "type": "camera_events",
+            "id": self.id + "_VM",
+            "type": self.type,
             "Event_name": "VideoMotion",
             "State": {
                 "type": "String",
@@ -34,12 +35,13 @@ class VideoMotion(Event):
         
         
 class CrossRegionDetection(Event):
-    def toOrionEntitie(self, id): 
+    def toOrionEntitie(self, id, type): 
         self.id = id
+        self.type = type
         dataJn = json.loads(self.data)
         payload = {
-            "id": self.id,
-            "type": "camera_events",
+            "id": self.id + "_CR",
+            "type": self.type,
             "Event_name": "CrossRegionDetection",
             "State": {
                 "type": "String",
@@ -86,12 +88,13 @@ class CrossRegionDetection(Event):
 
 
 class CrossLineDetection(Event):
-    def toOrionEntitie(self, id): 
+    def toOrionEntitie(self, id, type): 
         self.id = id
+        self.type = type
         dataJn = json.loads(self.data)
         payload = {
-            "id": self.id,
-            "type": "camera_events",
+            "id": self.id + "_CL",
+            "type": self.type,
             "Event_name": "CrossLineDetection",
             "State": {
                 "type": "String",
@@ -141,12 +144,13 @@ class CrossLineDetection(Event):
 
 
 class TakenAwayDetection(Event):
-    def toOrionEntitie(self, id): 
+    def toOrionEntitie(self, id, type): 
         self.id = id
+        self.type = type
         dataJn = json.loads(self.data)
         payload = {
-            "id": self.id,
-            "type": "camera_events",
+            "id": self.id + "_TAD",
+            "type": self.type ,
             "Event_name": "TakenAwayDetection",
             "State": {
                 "type": "String",
