@@ -1,0 +1,10 @@
+dahua:
+  orion:
+    host: localhost
+    port: 1026
+  cameras:
+    exterior01:
+      host: 161.72.123.249
+      user: admin
+      password: 12345
+      events: [""]

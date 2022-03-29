@@ -1,5 +1,6 @@
 import enum
-from decodifier import CrossLineDetectionEventDecoded, CrossRegionDetectionEventDecoded, MotionEventDecoded, TakenAwayDetectionEventDecoded
+from EventDecoder import CrossLineDetectionEventDecoded, CrossRegionDetectionEventDecoded, MotionEventDecoded, \
+    TakenAwayDetectionEventDecoded
 
 
 class EventCode(enum.Enum):

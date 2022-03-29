@@ -1,29 +1,40 @@
 import json
-from orionContextBroker import orionContextBroker
+from time import time
 
 
-class Event:
-    def __init__(self, message):
-        
-        self.data = message["data"]
-        self.action = message["action"]
-        
-    def toOrionEntitie(self, id, type):
+class EventDecoder:
+    @staticmethod
+    def get_code(event):
+        begin = event.find("=")
+        end = event.find(";")
+        return event[begin + 1:end]
+
+    @staticmethod
+    def get_action(event):
+        begin = event.find("action=")
+        end = event.find(";index")
+        return event[begin + 7:end]
+
+    @staticmethod
+    def get_data(event):
+        begin = event.find("data=")
+        last = event.__len__()
+        return event[begin + 5:last]
+
+    def to_orion_attribute(self, message):
         raise NotImplementedError()
-    
-    
-class VideoMotion(Event): 
-    def toOrionEntitie(self, id, type): 
-        self.id = id
-        self.type = type
-        dataJn = json.loads(self.data)
+
+
+class MotionEventDecoded(EventDecoder):
+    def to_orion_attribute(self, message):
+        dataJn = json.loads(message)
         payload = {
-            "id": self.id + "_VM",
-            "type": self.type,
+            "id": id + "_VM",
+            "type": type,
             "Event_name": "VideoMotion",
             "State": {
                 "type": "String",
-                "value": self.action
+                "value": self.get_action(message)
             },
             "RegionName": {
                 "type": "ArrayList",
@@ -32,53 +43,21 @@ class VideoMotion(Event):
         }
         # print(str(payload))
         return payload
-        
-        
-class CrossRegionDetection(Event):
-    def toOrionEntitie(self, id, type): 
-        self.id = id
-        self.type = type
-        dataJn = json.loads(self.data)
+
+
+# ESTE ES EL EJEMPLO BUENO
+# Ya no es necesario el id y el type
+class CrossRegionDetectionEventDecoded(EventDecoder):
+    def to_orion_attribute(self, message):
+        dataJn = json.loads(message)
         payload = {
-            "id": self.id + "_CR",
-            "type": self.type,
-            "Event_name": "CrossRegionDetection",
-            "State": {
-                "type": "String",
-                "value": self.action
-            },
-            "DetectRegion": {
-                "type": "ArrayList",
-                "value": dataJn["DetectRegion"]
-            },
-            "ObjectDetected": {
-                "type": "Object",
-                "Action": {
-                    "type": "String",
-                    "value": dataJn["Object"]["Action"]
-                },
-                "ObjectType" :{
-                    "type": "String",
-                    "value": dataJn["Object"]["ObjectType"]
-                },
-                "Speed": {
-                    "type": "String",
-                    "value": dataJn["Object"]["Speed"]
-                },
-                "SpeedTypeInternal":{
-                    "type": "String",
-                    "value": dataJn["Object"]["SpeedTypeInternal"]
-                },
-                "FrameLocation": {
-                    "type": "Object",
-                    "BoundingBox" : {
-                        "type": "ArrayList",
-                        "value": dataJn["Object"]["BoundingBox"]
-                    },
-                    "Center" : {
-                        "type": "ArrayList",
-                        "value": dataJn["Object"]["Center"]
-                    }
+            "crossRegionEvent": {
+                "type": "Event",
+                "value": {
+                    "action": self.get_action(message),
+                    "boundingBox": dataJn["DetectRegion"],
+                    "type": dataJn["Object"]["Action"],
+                    "date": time()
                 }
             }
         }
@@ -86,19 +65,18 @@ class CrossRegionDetection(Event):
         return payload
 
 
-
-class CrossLineDetection(Event):
-    def toOrionEntitie(self, id, type): 
+class CrossLineDetectionEventDecoded(EventDecoder):
+    def to_orion_attribute(self, message):
         self.id = id
         self.type = type
-        dataJn = json.loads(self.data)
+        dataJn = json.loads(message)
         payload = {
             "id": self.id + "_CL",
             "type": self.type,
             "Event_name": "CrossLineDetection",
             "State": {
                 "type": "String",
-                "value": self.action
+                "value": self.get_action(message)
             },
             "DetectLine": {
                 "type": "ArrayList",
@@ -114,7 +92,7 @@ class CrossLineDetection(Event):
                     "type": "String",
                     "value": dataJn["Object"]["Action"]
                 },
-                "ObjectType" :{
+                "ObjectType": {
                     "type": "String",
                     "value": dataJn["Object"]["ObjectType"]
                 },
@@ -122,17 +100,17 @@ class CrossLineDetection(Event):
                     "type": "String",
                     "value": dataJn["Object"]["Speed"]
                 },
-                "SpeedTypeInternal":{
+                "SpeedTypeInternal": {
                     "type": "String",
                     "value": dataJn["Object"]["SpeedTypeInternal"]
                 },
                 "FrameLocation": {
                     "type": "Object",
-                    "BoundingBox" : {
+                    "BoundingBox": {
                         "type": "ArrayList",
                         "value": dataJn["Object"]["BoundingBox"]
                     },
-                    "Center" : {
+                    "Center": {
                         "type": "ArrayList",
                         "value": dataJn["Object"]["Center"]
                     }
@@ -143,18 +121,19 @@ class CrossLineDetection(Event):
         return payload
 
 
-class TakenAwayDetection(Event):
-    def toOrionEntitie(self, id, type): 
+class TakenAwayDetectionEventDecoded(EventDecoder):
+    def to_orion_attribute(self, message):
+        # Decodificar el mensaje
         self.id = id
         self.type = type
-        dataJn = json.loads(self.data)
+        dataJn = json.loads(message)
         payload = {
             "id": self.id + "_TAD",
-            "type": self.type ,
+            "type": self.type,
             "Event_name": "TakenAwayDetection",
             "State": {
                 "type": "String",
-                "value": self.action
+                "value": self.get_action(message)
             },
             "ObjectDetected": {
                 "type": "Object",
@@ -162,17 +141,17 @@ class TakenAwayDetection(Event):
                     "type": "String",
                     "value": dataJn["Object"]["Action"]
                 },
-                "ObjectType" :{
+                "ObjectType": {
                     "type": "String",
                     "value": dataJn["Object"]["ObjectType"]
                 },
                 "FrameLocation": {
                     "type": "Object",
-                    "BoundingBox" : {
+                    "BoundingBox": {
                         "type": "ArrayList",
                         "value": dataJn["Object"]["BoundingBox"]
                     },
-                    "Center" : {
+                    "Center": {
                         "type": "ArrayList",
                         "value": dataJn["Object"]["Center"]
                     }
@@ -181,3 +160,4 @@ class TakenAwayDetection(Event):
         }
         # print(str(payload))
         return payload
+    
