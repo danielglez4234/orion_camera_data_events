@@ -1,5 +1,6 @@
 #######################
 #  Available Events
+#  ["VideoMotion", "CrossRegionDetection", "CrossLineDetection", "TakenAwayDetection"]
 #######################
 
 dahua:
