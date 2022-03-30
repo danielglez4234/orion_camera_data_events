@@ -1,0 +1,26 @@
+#######################
+#  Available Events
+#######################
+
+dahua:
+  orion:
+    host: localhost
+    port: 1026
+  cameras:
+    exterior03:
+      host: 161.72.123.249
+      user: admin
+      password: 1IoTIC21
+      events: ["CrossRegionDetection","CrossLineDetection"]
+
+    exterior04:
+      host: 161.72.123.249
+      user: admin
+      password: 1IoTIC21
+      events: ["VideoMotion"]
+
+    exterior05:
+      host: 161.72.123.249
+      user: admin
+      password: 1IoTIC21
+      events: ["TakenAwayDetection"]
