@@ -17,6 +17,7 @@ class EventDecoder:
 
     @staticmethod
     def get_data(event):
+        # print(event)
         begin = event.find("data=")
         last = event.__len__()
         return event[begin + 5:last]

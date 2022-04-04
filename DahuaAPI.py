@@ -16,6 +16,8 @@ def init():
 
     OrionContextBroker.HOSTNAME = config['orion']['host']
     OrionContextBroker.PORT = config['orion']['port']
+    OrionContextBroker.FIWARE_SERVICE = config['orion']['fiware_service']
+    OrionContextBroker.FIWARE_SERVICE_PATH = config['orion']['fiware_service_path']
 
     listeners = []
     cameras = config['cameras']

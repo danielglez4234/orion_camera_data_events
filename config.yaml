@@ -1,27 +1,33 @@
-#######################
-#  Available Events
-#  ["VideoMotion", "CrossRegionDetection", "CrossLineDetection", "TakenAwayDetection"]
-#######################
-
 dahua:
   orion:
     host: localhost
     port: 1026
+    fiware_service: gtc
+    fiware_service_path: /
   cameras:
-    exterior03:
-      host: 161.72.123.249
-      user: admin
-      password: 1IoTIC21
-      events: ["CrossRegionDetection","CrossLineDetection"]
+
+    ###---------------######---------------######---------------######---------------###
+    ## Add this lines below to generate a new subcription event to a camera
+    ##
+    ## Available Events
+    ## ["VideoMotion", "CrossRegionDetection", "CrossLineDetection", "TakenAwayDetection"]
+    ##
+    ## Eg.:
+    ## exterior03: ---> entitie id (it has to be alredy created on the orion)
+    ##   host: 161.72.18.133
+    ##   user: admin
+    ##   password: 1IoTIC21
+    ##   events: ["CrossRegionDetection","CrossLineDetection"]
+    ###---------------######---------------######---------------######---------------###
 
     exterior04:
-      host: 161.72.123.249
+      host: 161.72.18.133:8091
       user: admin
-      password: 1IoTIC21
-      events: ["VideoMotion"]
+      password: 12345678a
+      events: ["VideoMotion", "CrossRegionDetection", "CrossLineDetection", "TakenAwayDetection"]
 
     exterior05:
       host: 161.72.123.249
       user: admin
       password: 1IoTIC21
-      events: ["TakenAwayDetection"]
+      events: ["VideoMotion"]

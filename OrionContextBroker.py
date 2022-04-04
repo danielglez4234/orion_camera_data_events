@@ -1,35 +1,44 @@
 import json
 import requests
-# from configparser import ConfigParser
+from configparser import ConfigParser
 
-
-HEADERS = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-    "fiware-service": "gtc",
-    "fiware-servicePath": "/"
-}
 
 OCB = None
 
-HOSTNAME = "localhost"
-PORT = "1026"
+config = ConfigParser()
+config.read('config.ini')
+
+HOSTNAME = config['ORION_CONECCTION']['host']
+PORT = config['ORION_CONECCTION']['port']
+FIWARE_SERVICE = config['ORION_CONECCTION']['fiware_service']
+FIWARE_SERVICE_PATH = config['ORION_CONECCTION']['fiware_service_path']
 
 
 class OrionContextBroker:
-    def __init__(self, host, port):
+    def __init__(self, host, port, fiware_service, fiware_service_path):
         self.host = host
         self.port = port
+        self.service = fiware_service
+        self.service_path = fiware_service_path
+        self.headers = {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "fiware-service": self.service ,
+            "fiware-servicePath": self.service_path
+        }
+        
         
     # def create_entity(self, entity):
-    #     # r = requests.patch("http://%s:%s/v2/entities/" % (self.host, self.port), data=entity, headers=HEADERS)
+    #     entitie_model = {
+    #         "id": entity["id"], 
+    #         "type": "Event"
+    #     }
+    #     # r = requests.post("http://%s:%s/v2/entities/" % (self.host, self.port), data=entity, headers=HEADERS)
     #     pass
 
 
     def update_entity(self, id, attribute):
-        # print("id: ", id, "attr: ", attribute)
-
-        r = requests.post("http://%s:%s/v2/entities/%s/attrs" % (self.host, self.port, id), data=json.dumps(attribute), headers=HEADERS)
+        r = requests.post("http://%s:%s/v2/entities/%s/attrs" % (self.host, self.port, id), data=json.dumps(attribute), headers=self.headers)
 
         if r.status_code != 204 and r.status_code != 200:
             print('%s -FAIL %d' % (id, r.status_code))
@@ -41,5 +50,5 @@ class OrionContextBroker:
     def get_instance():
         global OCB
         if OCB is None:
-            OCB = OrionContextBroker(HOSTNAME, PORT)
+            OCB = OrionContextBroker(HOSTNAME, PORT, FIWARE_SERVICE, FIWARE_SERVICE_PATH)
         return OCB
