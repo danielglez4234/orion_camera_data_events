@@ -1,6 +1,6 @@
 FROM python:3.8-slim-buster
 
-WORKDIR /DATA_EVENTS_ORION
+WORKDIR /orion_camera_data_events
 
 COPY requirements.txt requirements.txt
 
