@@ -10,8 +10,6 @@ from EventDecoder import EventDecoder
 from OrionContextBroker import OrionContextBroker
 
 connected = False
-USERNAME = "admin"
-PASSWORD = "1IoTIC21"
 
 
 class EventListener(threading.Thread):

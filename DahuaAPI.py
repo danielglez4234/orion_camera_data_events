@@ -34,7 +34,4 @@ def init():
 
 
 if __name__ == '__main__':
-    USERNAME = "admin"
-    PASSWORD = "1IoTIC21"
-
     init()
